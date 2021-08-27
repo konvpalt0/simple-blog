@@ -15,7 +15,7 @@ export const postsAPI = {
 	getRetrieves: async (
 		postId: number,
 		embed: string = 'comments'
-	): Promise<PostType & { comments: Array<Comment> }> => {
+	): Promise<PostType & { comments: Array<CommentType> }> => {
 		const response = await api.get(`posts/${postId}?_embed=${embed}`)
 		return response.data
 	},
@@ -57,7 +57,7 @@ export interface PostContent {
 export interface PostType extends PostContent {
 	id: number
 }
-export interface Comment {
+export interface CommentType {
 	id: number
 	postId: number
 	body: string

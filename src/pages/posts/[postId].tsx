@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { GetStaticPaths, GetStaticPropsResult } from 'next'
-import { Comment, postsAPI, PostType } from '../../lib/api/axios-api'
+import { CommentType, postsAPI, PostType } from '../../lib/api/axios-api'
 import PostEditor from '../../components/PostEditor/PostEditor'
 
 const Post: FC<Props> = ({ postData }: PropsWithChildren<Props>) => (
@@ -48,5 +48,5 @@ interface Params {
 }
 type StaticProps = Paths<Params>[0]
 interface Props {
-	postData: PostType & { comments: Array<Comment> }
+	postData: PostType & { comments: Array<CommentType> }
 }
