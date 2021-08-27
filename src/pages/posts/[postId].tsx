@@ -1,13 +1,15 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { GetStaticPaths, GetStaticPropsResult } from 'next'
-import { PostContent, postsAPI } from '../../lib/api/axios-api'
+import { Comment, postsAPI, PostType } from '../../lib/api/axios-api'
+import PostEditor from '../../components/PostEditor/PostEditor'
 
 const Post: FC<Props> = ({ postData }: PropsWithChildren<Props>) => (
-	<div>
-		<div>{postData.title}</div>
-		<br />
-		<div>{postData.body}</div>
-	</div>
+	<PostEditor
+		id={postData.id}
+		title={postData.title}
+		body={postData.body}
+		comments={postData.comments}
+	/>
 )
 
 export default Post
@@ -30,6 +32,7 @@ export const getStaticProps = async ({
 	params,
 }: StaticProps): Promise<GetStaticPropsResult<Props>> => {
 	const postData = await postsAPI.getRetrieves(params.postId)
+	postData.id = params.postId
 	return {
 		props: {
 			postData,
@@ -41,9 +44,9 @@ type Paths<T> = Array<{
 	params: T
 }>
 interface Params {
-	postId: string
+	postId: number
 }
 type StaticProps = Paths<Params>[0]
 interface Props {
-	postData: PostContent
+	postData: PostType & { comments: Array<Comment> }
 }

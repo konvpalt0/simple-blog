@@ -13,7 +13,7 @@ export const postsAPI = {
 		return response.data
 	},
 	getRetrieves: async (
-		postId: string,
+		postId: number,
 		embed: string = 'comments'
 	): Promise<PostType & { comments: Array<Comment> }> => {
 		const response = await api.get(`posts/${postId}?_embed=${embed}`)

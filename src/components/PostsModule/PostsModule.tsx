@@ -30,7 +30,7 @@ const PostsModule: FC<Props> = ({ postsList }: PropsWithChildren<Props>) => (
 			<AddNewPostButton />
 			<Title>Last posts</Title>
 			{postsList.map(post => (
-				<Post key={post.id} title={post.title} body={post.body} />
+				<Post key={post.id} title={post.title} body={post.body} id={post.id} />
 			))}
 		</Column>
 	</>

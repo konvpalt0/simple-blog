@@ -1,8 +1,11 @@
+import Link from 'next/link'
 import React, { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { PostContent } from '../../../lib/api/axios-api'
 
-interface Props extends PostContent {}
+interface Props extends PostContent {
+	id: number
+}
 
 const basedColor: React.CSSProperties['color'] = 'whitesmoke'
 const hoverColor: React.CSSProperties['color'] = '#d4dee5'
@@ -36,11 +39,13 @@ export const Body = styled.div`
 	text-align: justify;
 `
 
-const Post: FC<Props> = ({ title, body }: PropsWithChildren<Props>) => (
-	<PostContainer>
-		<Title>{title}</Title>
-		<Body>{body}</Body>
-	</PostContainer>
+const Post: FC<Props> = ({ title, body, id }: PropsWithChildren<Props>) => (
+	<Link href={`/posts/${id}`}>
+		<PostContainer>
+			<Title>{title}</Title>
+			<Body>{body}</Body>
+		</PostContainer>
+	</Link>
 )
 
 export default Post
