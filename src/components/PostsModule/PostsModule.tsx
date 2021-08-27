@@ -2,6 +2,7 @@ import React, { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import { PostType } from '../../lib/api/axios-api'
 import Post from './Post/Post'
+import AddNewPostButton from './AddNewPostButton/AddNewPostButton'
 
 interface Props {
 	postsList: Array<PostType>
@@ -14,7 +15,7 @@ const Title = styled.div`
 	font-style: oblique;
 	margin-bottom: 20px;
 `
-const Column = styled.div`
+export const Column = styled.div`
 	display: flex;
 	flex-direction: column;
 	max-width: 450px;
@@ -26,8 +27,8 @@ const Column = styled.div`
 const PostsModule: FC<Props> = ({ postsList }: PropsWithChildren<Props>) => (
 	<>
 		<Column>
+			<AddNewPostButton />
 			<Title>Last posts</Title>
-			<div>Add new post</div>
 			{postsList.map(post => (
 				<Post key={post.id} title={post.title} body={post.body} />
 			))}

@@ -25,13 +25,13 @@ const PostContainer = styled.div`
 		background: ${hoverColor};
 	}
 `
-const Title = styled.div`
+export const Title = styled.div`
 	font-size: 30px;
 	font-weight: bold;
 	align-self: center;
 	margin-bottom: 10px;
 `
-const Body = styled.div`
+export const Body = styled.div`
 	font-size: 18px;
 	text-align: justify;
 `
