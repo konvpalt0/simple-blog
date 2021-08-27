@@ -19,7 +19,7 @@ export const postsAPI = {
 		const response = await api.get(`posts/${postId}?_embed=${embed}`)
 		return response.data
 	},
-	create: async (payload: PostContent): Promise<AxiosResponse<any>> =>
+	create: async (payload: PostContent): Promise<AxiosResponse> =>
 		api.post(`posts`, payload, {
 			headers: {
 				'Content-Type': 'application/json',
@@ -28,13 +28,13 @@ export const postsAPI = {
 	update: async (
 		postId: string,
 		payload: PostContent
-	): Promise<AxiosResponse<any>> =>
+	): Promise<AxiosResponse> =>
 		api.put(`posts/${postId}`, payload, {
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		}),
-	delete: async (postId: string): Promise<AxiosResponse<any>> =>
+	delete: async (postId: string): Promise<AxiosResponse> =>
 		api.delete(`posts/${postId}`),
 }
 
@@ -42,7 +42,7 @@ export const commentAPI = {
 	create: async (payload: {
 		postId: number
 		body: string
-	}): Promise<AxiosResponse<any>> =>
+	}): Promise<AxiosResponse> =>
 		api.post(`/comments`, payload, {
 			headers: {
 				'Content-Type': 'application/json',

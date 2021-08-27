@@ -1,13 +1,11 @@
 import React, { PropsWithChildren } from 'react'
 import { GetStaticPropsResult } from 'next'
 import { PostType, postsAPI } from '../lib/api/axios-api'
-import Post from '../components/Post/Post'
+import PostsModule from '../components/PostsModule/PostsModule'
 
 const Index: React.FC<Props> = ({ postsList }: PropsWithChildren<Props>) => (
 	<div>
-		{postsList.map(post => (
-			<Post key={post.id} title={post.title} body={post.body} />
-		))}
+		<PostsModule postsList={postsList} />
 	</div>
 )
 
