@@ -1,20 +1,25 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { GetStaticPaths, GetStaticPropsResult } from 'next'
+import { PostContent, postsAPI } from '../../lib/api/axios-api'
 
 const Post: FC<Props> = ({ postData }: PropsWithChildren<Props>) => (
-	<div>{postData}</div>
+	<div>
+		<div>{postData.title}</div>
+		<br />
+		<div>{postData.body}</div>
+	</div>
 )
 
 export default Post
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const paths: Paths<Params> = [
-		{
-			params: {
-				postId: 'r',
-			},
-		},
-	]
+	let posts
+	try {
+		posts = await postsAPI.getPostsList()
+	} catch {
+		throw new Error("can't get posts list")
+	}
+	const paths = posts.map(post => ({ params: { postId: `${post.id}` } }))
 	return {
 		paths,
 		fallback: false,
@@ -24,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({
 	params,
 }: StaticProps): Promise<GetStaticPropsResult<Props>> => {
-	const postData = `${params.postId} post text`
+	const postData = await postsAPI.getRetrieves(params.postId)
 	return {
 		props: {
 			postData,
@@ -35,11 +40,10 @@ export const getStaticProps = async ({
 type Paths<T> = Array<{
 	params: T
 }>
-type Params = {
+interface Params {
 	postId: string
 }
 type StaticProps = Paths<Params>[0]
-
-type Props = {
-	postData: string
+interface Props {
+	postData: PostContent
 }

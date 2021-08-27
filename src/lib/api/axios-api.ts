@@ -8,28 +8,18 @@ const api = axios.create({
 })
 
 export const postsAPI = {
-	getPostsList: async (): Promise<
-		Array<{ id: number; title: string; body: string }>
-	> => {
+	getPostsList: async (): Promise<Array<PostType>> => {
 		const response = await api.get(`posts`)
 		return response.data
 	},
 	getRetrieves: async (
 		postId: string,
 		embed: string = 'comments'
-	): Promise<{
-		id: number
-		title: string
-		body: string
-		comments: Array<{ id: number; postId: number; body: string }>
-	}> => {
+	): Promise<PostType & { comments: Array<Comment> }> => {
 		const response = await api.get(`posts/${postId}?_embed=${embed}`)
 		return response.data
 	},
-	create: async (payload: {
-		title: string
-		body: string
-	}): Promise<AxiosResponse<any>> =>
+	create: async (payload: PostContent): Promise<AxiosResponse<any>> =>
 		api.post(`posts`, payload, {
 			headers: {
 				'Content-Type': 'application/json',
@@ -37,7 +27,7 @@ export const postsAPI = {
 		}),
 	update: async (
 		postId: string,
-		payload: { title: string; body: string }
+		payload: PostContent
 	): Promise<AxiosResponse<any>> =>
 		api.put(`posts/${postId}`, payload, {
 			headers: {
@@ -58,4 +48,17 @@ export const commentAPI = {
 				'Content-Type': 'application/json',
 			},
 		}),
+}
+
+export interface PostContent {
+	title: string
+	body: string
+}
+export interface PostType extends PostContent {
+	id: number
+}
+export interface Comment {
+	id: number
+	postId: number
+	body: string
 }
