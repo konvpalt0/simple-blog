@@ -19,11 +19,11 @@ const PostsTitle = styled(Title)`
 const PostsModule: FC<Props> = ({ postsList }: PropsWithChildren<Props>) => (
 	<>
 		<Column>
-			<AddNewPostButton />
 			<PostsTitle>Last posts</PostsTitle>
 			{postsList.map(post => (
 				<Post key={post.id} title={post.title} body={post.body} id={post.id} />
 			))}
+			<AddNewPostButton />
 		</Column>
 	</>
 )
