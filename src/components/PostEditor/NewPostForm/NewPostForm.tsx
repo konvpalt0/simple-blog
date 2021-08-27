@@ -1,9 +1,9 @@
 import { Formik } from 'formik'
 import React, { FC } from 'react'
 import { useRouter } from 'next/router'
-import { PostContent, postsAPI } from '../../lib/api/axios-api'
-import Column from '../common/Column/Column'
-import Button from '../common/Button/Button'
+import { PostContent, postsAPI } from '../../../lib/api/axios-api'
+import Column from '../../common/Column/Column'
+import Button from '../../common/Button/Button'
 import PostForm from './PostForm/PostForm'
 
 const NewPostForm: FC = () => {

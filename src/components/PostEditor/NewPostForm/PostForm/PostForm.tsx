@@ -1,10 +1,10 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { FastField, FieldProps, Form } from 'formik'
 import styled from 'styled-components'
-import { PostContent } from '../../../lib/api/axios-api'
-import Title from '../../common/Title/Title'
-import BodyText from '../../common/BodyText/BodyText'
-import Brick from '../../common/Brick/Brick'
+import { PostContent } from '../../../../lib/api/axios-api'
+import Title from '../../../common/Title/Title'
+import BodyText from '../../../common/BodyText/BodyText'
+import Brick from '../../../common/Brick/Brick'
 
 const EditTitle = styled(Title)`
 	& > input {
@@ -30,7 +30,7 @@ const ButtonBlock = styled(Brick)`
 	justify-content: flex-end;
 `
 
-const PostForm: FC<{}> = ({ children }: PropsWithChildren<{}>) => (
+const PostForm: FC = ({ children }: PropsWithChildren<{}>) => (
 	<Form>
 		<Brick>
 			<EditTitle>

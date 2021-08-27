@@ -1,5 +1,5 @@
 import React from 'react'
-import NewPostForm from '../../components/NewPostForm/NewPostForm'
+import NewPostForm from '../../components/PostEditor/NewPostForm/NewPostForm'
 
 const New = () => <NewPostForm />
 

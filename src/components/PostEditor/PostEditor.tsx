@@ -5,7 +5,7 @@ import { CommentType, postsAPI, PostType } from '../../lib/api/axios-api'
 import Column from '../common/Column/Column'
 import Button from '../common/Button/Button'
 import Comment from './Comment/Comment'
-import PostForm from '../NewPostForm/PostForm/PostForm'
+import PostForm from './NewPostForm/PostForm/PostForm'
 import Title from '../common/Title/Title'
 
 interface Props extends PostType {
