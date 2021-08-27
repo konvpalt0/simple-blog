@@ -1,4 +1,4 @@
-#Front-End (React) test assessment
+# Front-End (React) test assessment
 
 Functionality
 - page (```/``` route) with Posts list
