@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react'
-import { GetStaticPropsResult } from 'next'
+import { GetServerSidePropsResult } from 'next'
 import { PostType, postsAPI } from '../lib/api/axios-api'
 import PostsModule from '../components/PostsList/PostsModule'
 
@@ -11,8 +11,8 @@ const Index: React.FC<Props> = ({ postsList }: PropsWithChildren<Props>) => (
 
 export default Index
 
-export const getStaticProps = async (): Promise<
-	GetStaticPropsResult<Props>
+export const getServerSideProps = async (): Promise<
+	GetServerSidePropsResult<Props>
 > => {
 	const postsList = await postsAPI.getPostsList()
 	return {
