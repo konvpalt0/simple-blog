@@ -1,4 +1,4 @@
-#Front-End (React) test assessment
+# Front-End (React) test assessment
 
 Functionality
 - page (```/``` route) with Posts list
@@ -6,7 +6,7 @@ Functionality
 - page (```/posts/new``` route) with Form for creating new Posts
 
 ## Getting Started
-Clone this repository ```git clone ``` or try it on.
+Clone this repository ```git clone https://github.com/konvpalt0/simple-blog.git``` or try it on [simple-blog-iota-two.vercel.app](https://simple-blog-iota-two.vercel.app).
 
 After clone repository, you must install packages with 
 ```bash
