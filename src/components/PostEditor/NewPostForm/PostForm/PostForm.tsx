@@ -1,10 +1,10 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { FastField, FieldProps, Form } from 'formik'
 import styled from 'styled-components'
-import { PostContent } from '../../../../lib/api/axios-api'
 import Title from '../../../common/Title/Title'
 import BodyText from '../../../common/BodyText/BodyText'
 import Brick from '../../../common/Brick/Brick'
+import { PostContent } from '../../../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 const EditTitle = styled(Title)`
 	& > input {

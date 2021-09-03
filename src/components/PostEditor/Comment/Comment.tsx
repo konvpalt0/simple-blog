@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react'
-import { CommentType } from '../../../lib/api/axios-api'
 import Brick from '../../common/Brick/Brick'
+import { CommentType } from '../../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 interface Props extends CommentType {}
 

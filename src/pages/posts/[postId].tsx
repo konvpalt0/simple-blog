@@ -1,7 +1,11 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { GetStaticPaths, GetStaticPropsResult } from 'next'
-import { CommentType, postsAPI, PostType } from '../../lib/api/axios-api'
+import { postsAPI } from '../../lib/api/axios-api'
 import PostEditor from '../../components/PostEditor/PostEditor'
+import {
+	CommentType,
+	PostType,
+} from '../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 const Post: FC<Props> = ({ postData }: PropsWithChildren<Props>) => (
 	<PostEditor

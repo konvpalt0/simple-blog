@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import React, { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import { PostContent } from '../../../lib/api/axios-api'
 import Brick from '../../common/Brick/Brick'
 import Title from '../../common/Title/Title'
 import BodyText from '../../common/BodyText/BodyText'
+import { PostContent } from '../../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 interface Props extends PostContent {
 	id: number

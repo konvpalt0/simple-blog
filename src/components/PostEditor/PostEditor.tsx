@@ -1,12 +1,16 @@
 import React, { FC, PropsWithChildren } from 'react'
 import { useRouter } from 'next/router'
 import { Formik } from 'formik'
-import { CommentType, postsAPI, PostType } from '../../lib/api/axios-api'
+import { postsAPI } from '../../lib/api/axios-api'
 import Column from '../common/Column/Column'
 import Button from '../common/Button/Button'
 import Comment from './Comment/Comment'
 import PostForm from './NewPostForm/PostForm/PostForm'
 import Title from '../common/Title/Title'
+import {
+	CommentType,
+	PostType,
+} from '../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 interface Props extends PostType {
 	comments: Array<CommentType>

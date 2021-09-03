@@ -1,4 +1,9 @@
 import axios, { AxiosResponse } from 'axios'
+import {
+	CommentType,
+	PostContent,
+	PostType,
+} from '../redux/reducers/posts-reducer/post-reducer-types'
 
 const BASE_URL = 'https://simple-blog-api.crew.red'
 
@@ -15,7 +20,7 @@ export const postsAPI = {
 	getRetrieves: async (
 		postId: number,
 		embed: string = 'comments'
-	): Promise<PostType & { comments: Array<CommentType> }> => {
+	): Promise<PostRetrieves> => {
 		const response = await api.get(`posts/${postId}?_embed=${embed}`)
 		return response.data
 	},
@@ -50,15 +55,6 @@ export const commentAPI = {
 		}),
 }
 
-export interface PostContent {
-	title: string
-	body: string
-}
-export interface PostType extends PostContent {
-	id: number
-}
-export interface CommentType {
-	id: number
-	postId: number
-	body: string
+export interface PostRetrieves extends PostType {
+	comments: Array<CommentType>
 }

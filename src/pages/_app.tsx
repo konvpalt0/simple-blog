@@ -1,14 +1,16 @@
 import '../styles/global.scss'
 import { AppProps } from 'next/app'
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import { Provider } from 'react-redux'
+import { useStore } from '../lib/redux/store'
 
-const App = ({ Component, pageProps }: AppProps) => (
-	<>
-		<ThemeProvider theme={{}}>
+const App = ({ Component, pageProps }: AppProps) => {
+	const store = useStore(pageProps.initialReduxState)
+	return (
+		<Provider store={store}>
 			<Component {...pageProps} />
-		</ThemeProvider>
-	</>
-)
+		</Provider>
+	)
+}
 
 export default App

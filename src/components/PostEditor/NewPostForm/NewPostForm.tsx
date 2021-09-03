@@ -1,10 +1,11 @@
 import { Formik } from 'formik'
 import React, { FC } from 'react'
 import { useRouter } from 'next/router'
-import { PostContent, postsAPI } from '../../../lib/api/axios-api'
+import { postsAPI } from '../../../lib/api/axios-api'
 import Column from '../../common/Column/Column'
 import Button from '../../common/Button/Button'
 import PostForm from './PostForm/PostForm'
+import { PostContent } from '../../../lib/redux/reducers/posts-reducer/post-reducer-types'
 
 const NewPostForm: FC = () => {
 	const router = useRouter()
